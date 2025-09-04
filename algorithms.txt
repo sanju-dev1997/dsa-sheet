@@ -1,0 +1,8 @@
+1. bubble sort
+2. selection sort
+3. insertion sort
+4. merge sort
+5. quick sort
+6. dutch national flag 
+7. moore's voting 
+8. Kaden's 
