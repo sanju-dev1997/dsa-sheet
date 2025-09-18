@@ -23,7 +23,6 @@ function brute(arr) {
   }
 }
 
-
 //optimal
 //TC - O(N)
 //SC - O(N)
