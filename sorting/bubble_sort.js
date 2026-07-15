@@ -1,20 +1,15 @@
 let arr = [13, 46, 24, 52, 20, 9];
 
 Array.prototype.bubbleSort = function () {
-  let array = this;
-  for (let i = 0; i < array.length - 1; i++) {
-    let didSwap = false;
-    for (let j = 0; j < array.length - i - 1; j++) {
-      if (array[j] >= array[j + 1]) {
-        [array[j], array[j + 1]] = [array[j + 1], array[j]];
-        didSwap = true;
+  //n=6
+  let n = this.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (this[j] > this[j + 1]) {
+        [this[j], this[j + 1]] = [this[j + 1], this[j]];
       }
     }
-    if (!didSwap) {
-      break;
-    }
   }
-  return array;
 };
 
 arr.bubbleSort();

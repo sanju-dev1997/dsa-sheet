@@ -1,32 +1,34 @@
 let arr = [4, 6, 2, 5, 7, 9, 1, 3];
-
 function quickSort(arr, l, h) {
-  if (l < h) {
-    let partitionIndex = findPartitionIndex(arr, l, h);
-    quickSort(arr, l, partitionIndex - 1);
-    quickSort(arr, partitionIndex + 1, h);
+  if (l >= h) {
     return arr;
   }
+  let pI = placePivot(arr, l, h);
+  quickSort(arr, l, pI - 1);
+  quickSort(arr, pI + 1, h);
+  return arr;
 }
 
-function findPartitionIndex(arr, l, h) {
+function placePivot(arr, l, h) {
+  let partitionIndex = -1;
+  let pivot = arr[l];
   let i = l;
   let j = h;
-  let pivot = l;
   while (i < j) {
-    while (arr[i] <= arr[pivot] && i <= h) {
+    while (arr[i] <= pivot && i <= h) {
       i++;
     }
-    while (arr[j] > arr[pivot] && j >= l) {
+    while (arr[j] > pivot && j >= l) {
       j--;
     }
-    if (i < j) {
-      [arr[i], arr[j]] = [arr[j], arr[i]];
+    if (i > j) {
+      [arr[j], arr[l]] = [arr[l], arr[j]];
+      partitionIndex = j;
+      break;
     }
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-  [arr[j], arr[pivot]] = [arr[pivot], arr[j]];
-  return j;
+  return partitionIndex;
 }
 
-let ans = quickSort(arr, 0, arr.length - 1);
-console.log(ans);
+console.log(quickSort(arr, 0, arr.length - 1));

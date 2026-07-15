@@ -1,20 +1,20 @@
-let arr = [13, 46, 24, 52, 20, 9];
+//Get the minimum and swap
 
-Array.prototype.selectionSort = function () {
-  let array = this;
-  for (let i = 0; i < array.length - 1; i++) {
-    let minIndex = i;
-    for (let j = i; j < array.length; j++) {
-      if (array[j] <= array[minIndex]) {
+let num = [12, 1, 13];
+function selectionSort(num) {
+  let nums = [...num];
+  for (let i = 0; i < nums.length - 2; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] < min) {
+        min = nums[j];
         minIndex = j;
       }
     }
     if (minIndex !== -1) {
-      [array[minIndex], array[i]] = [array[i], array[minIndex]];
+      [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
     }
   }
-  return array;
-};
+  return nums;
+}
 
-arr.selectionSort();
-console.log(arr);
+console.log(selectionSort(num));
